@@ -1,0 +1,14 @@
+{
+  "name": "week1_bmpTransform",
+  "version": "0.1.0",
+  "description": "Code Fellows: Week 1 Assignment BMP Reader and Transform",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha"
+  },
+  "author": "Melissa Fernandes",
+  "license": "MIT"
+}
