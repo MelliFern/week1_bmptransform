@@ -3,12 +3,13 @@
 var expect =require('chai').expect; 
 var bmp = require('../lib/bmpReader.js');
 var bmptrans = require('../lib/bmptransform.js');
+var transformation = require('../lib/transformation.js');
 
 
 describe('Test bmptransform -', function(){
 
 before(function(){
-    this.bmpBuf = bmp.readFile('../test.bmp'); // read file
+    this.bmpBuf = bmp.readFile('./test.bmp'); // read file
     this.bmpsize = this.bmpBuf.readInt32LE(2); 
     this.bmpheader = this.bmpBuf.readInt32LE(14) + 14; //14 extra byte for the bit map file header
     this.bmpPaletteSize = this.bmpBuf.readInt32LE(46);
@@ -50,7 +51,7 @@ describe('bufToObj test', function(){
 describe('transformObj test', function(){
     it('Ensure palette size is not modified', function(){ 
 
-     expect(bmptrans.transformObj(this.bufObj).palette.length).to.eql(this.bufObj.palette.length);
+     expect(bmptrans.transformObj(this.bufObj,transformation.transInverse).palette.length).to.eql(this.bufObj.palette.length);
     });
 
    /* it('Ensure size is not modified', function(){ 

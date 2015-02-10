@@ -9,7 +9,7 @@ var transformation = require('../lib/transformation.js');
 describe('Test transformation.js -', function(){
 
 beforeEach(function(){
-    this.bmpBuf = bmp.readFile('../test.bmp'); // read file
+    this.bmpBuf = bmp.readFile('./test.bmp'); // read file
     // convert buffer to object
     this.bufObj = bmptrans.bufToObj(this.bmpBuf);
     // get palette 
@@ -40,7 +40,7 @@ describe('transGreen test', function(){
 describe('transInverse test', function(){
     
     it('Check if green pixel of random palette is inverted', function(){ 
-        var palette = transformation.transInverse(bmptrans.bufToObj(bmp.readFile('../test.bmp'))).palette; 
+        var palette = transformation.transInverse(bmptrans.bufToObj(bmp.readFile('./test.bmp'))).palette; 
         var invertedVal = (this.palette[220].red-255) *(-1); 
 
         expect(palette[220].red).to.eql((invertedVal));
